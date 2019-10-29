@@ -7,25 +7,23 @@
     <title>Food Tracker</title>
 </head>
 <body>
-    <div class="container">
+    <div>
     <h1>Enter your food info below</h1>
-    <ul id='todo-list' class='list-group'>
+    <ul id='todo-list'>
     </ul>
-    <form action="">
-        <fieldset class="form-group">
-        <div>
-            <label for="form-title">Title:</label>
-            <input class="form-control" type="text" name="" id="form-title">
-        </div>
-        <div>
-            <label for="form-description">Description:</label>
-            <textarea class="form-control" name="" id="form-description" cols="30" rows="10"></textarea>
-            <input class="form-control" type="text" name="" id="form-title">
-        </div>
-        </fieldset>
-        <div>
-            <button class="btn btn-primary" type="submit" id='add-button'>Submit</button>
-        </div>
+    <form>
+        <label for="name-food">Name of food:</label>
+        <input type="text" id="name-food" placeholder="apple, chicken, etc.">
+        
+        <p>Macronutrients:</p>
+        <label for="carbs">Carbohydrates</label>
+        <input type="checkbox" id="carbs" name="macros">
+        <label for="protein">Protein</label>
+        <input type="checkbox" id="protein" name="macros">
+        <label for="fats">Fats</label>
+        <input type="checkbox" id="fats" name="macros">
+        
+        <button type="submit" id='add-button'>Submit</button>
     </form>
     </div>
 <script>

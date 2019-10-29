@@ -7,25 +7,27 @@
     <title>Food Tracker</title>
 </head>
 <body>
-    <div>
     <h1>Enter your food info below</h1>
-    <ul id='food-list'>
-    </ul>
+    
     <form>
         <label for="name-food">Name of food:</label>
         <input type="text" id="name-food" placeholder="apple, chicken, etc.">
         
-        <p>Macronutrients:</p>
+        Macronutrients: 
         <label for="macro1">Carbohydrates</label>
-        <input type="checkbox" id="macro1" name="macros" value="carbs">
+        <input type="checkbox" id="macro1" name="macros">
         <label for="macro2">Protein</label>
-        <input type="checkbox" id="macro2" name="macros" value="protein">
+        <input type="checkbox" id="macro2" name="macros">
         <label for="macro3">Fats</label>
-        <input type="checkbox" id="macro3" name="macros" value="fats">
+        <input type="checkbox" id="macro3" name="macros">
         
-        <button type="submit" id='add-button'>Submit</button>
+        <br>
+        <button type="submit" id="add-button">Submit</button>
     </form>
-    </div>
+    
+    <ul id='food-list'>
+    </ul>
+    
 <script>
   function main() {
     const addButton = document.getElementById('add-button');
@@ -37,8 +39,6 @@
     const macro1 = document.getElementById('macro1').checked;
     const macro2 = document.getElementById('macro2').checked;
     const macro3 = document.getElementById('macro3').checked;
-      console.log(nameFood);
-      console.log(macro1);
 
     document.getElementById('name-food').value = '';
     document.getElementById('macro1').checked = false;
@@ -59,9 +59,10 @@
       close_icon.appendChild(document.createTextNode('\u274e'));
         
       newitem.appendChild(document.createTextNode(nameFood));
-      if (macro1 == true) newitem.appendChild(document.createTextNode(' Carbohydrate'));
-      if (macro2 == true) newitem.appendChild(document.createTextNode(' Protein'));
-      if (macro3 == true) newitem.appendChild(document.createTextNode(' Fat'));
+      if (macro1 || macro2 || macro3) newitem.appendChild(document.createTextNode('with macronutrients:'));
+      if (macro1) newitem.appendChild(document.createTextNode(' Carbohydrate'));
+      if (macro2) newitem.appendChild(document.createTextNode(' Protein'));
+      if (macro3) newitem.appendChild(document.createTextNode(' Fat'));
         
       newitem.appendChild(close_icon);
       list.appendChild(newitem);
@@ -75,7 +76,7 @@
     }
   }
 
-  window.addEventListener("load", main);
+  window.onload = main;
 </script>
 </body>
 </html>

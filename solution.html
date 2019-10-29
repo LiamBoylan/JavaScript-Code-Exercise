@@ -12,6 +12,7 @@
     <form>
         <label for="name-food">Name of food:</label>
         <input type="text" id="name-food" placeholder="apple, chicken, etc.">
+        <br>
         
         Macronutrients: 
         <label for="macro1">Carbohydrates</label>
@@ -59,7 +60,7 @@
       close_icon.appendChild(document.createTextNode('\u274e'));
         
       newitem.appendChild(document.createTextNode(nameFood));
-      if (macro1 || macro2 || macro3) newitem.appendChild(document.createTextNode('with macronutrients:'));
+      if (macro1 || macro2 || macro3) newitem.appendChild(document.createTextNode(' with macronutrients:'));
       if (macro1) newitem.appendChild(document.createTextNode(' Carbohydrate'));
       if (macro2) newitem.appendChild(document.createTextNode(' Protein'));
       if (macro3) newitem.appendChild(document.createTextNode(' Fat'));

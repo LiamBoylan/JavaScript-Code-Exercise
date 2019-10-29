@@ -7,24 +7,23 @@
     <title>Food Tracker</title>
 </head>
 <body>
-    <div class="container">
+    <div>
     <h1>Enter your food info below</h1>
-    <ul id='todo-list' class='list-group'>
+    <ul id='todo-list'>
     </ul>
     <form action="">
-        <fieldset class="form-group">
-            <div>
-                <label for="form-title">Title:</label>
-                <input class="form-control" type="text" name="" id="form-title">
-            </div>
-            <div>
-                <label for="form-description">Description:</label>
-                <textarea class="form-control" name="" id="form-description" cols="30" rows="10"></textarea>
-            </div>
-        </fieldset>
-            <div>
-            <button class="btn btn-primary" type="submit" id='add-button'>Add Todo</button>
-            </div>
+        <div>
+            <label for="form-title">Title:</label>
+            <input class="form-control" type="text" name="" id="form-title">
+        </div>
+        <div>
+            <label for="form-description">Description:</label>
+            <textarea class="form-control" name="" id="form-description" cols="30" rows="10"></textarea>
+            <input class="form-control" type="text" name="" id="form-title">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit" id='add-button'>Submit</button>
+        </div>
     </form>
     </div>
 <script>
@@ -72,16 +71,6 @@
       newcard.appendChild(newcardbody);
       newitem.appendChild(newcard);
       list.appendChild(newitem);
-      // Add CSS to more easily search later
-      close_icon.classList.add('close-icon')
-      // Add bootstrap CSS to make it look nice
-      close_icon.classList.add('text-right')
-      newitem.classList.add('list-group-item');
-      newcard.classList.add('card');
-      newcard.classList.add('rounded');
-      newcard.classList.add('border');
-      newcard.classList.add('bg-light');
-      newcardbody.classList.add('card-body');
       // Set up ability to close card
       close_icon.addEventListener('click',()=>{
         while (newitem.firstChild) {

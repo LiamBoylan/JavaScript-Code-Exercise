@@ -9,69 +9,61 @@
 <body>
     <div>
     <h1>Enter your food info below</h1>
-    <ul id='todo-list'>
+    <ul id='food-list'>
     </ul>
     <form>
         <label for="name-food">Name of food:</label>
         <input type="text" id="name-food" placeholder="apple, chicken, etc.">
         
         <p>Macronutrients:</p>
-        <label for="carbs">Carbohydrates</label>
-        <input type="checkbox" id="carbs" name="macros">
-        <label for="protein">Protein</label>
-        <input type="checkbox" id="protein" name="macros">
-        <label for="fats">Fats</label>
-        <input type="checkbox" id="fats" name="macros">
+        <label for="macro1">Carbohydrates</label>
+        <input type="checkbox" id="macro1" name="macros" value="carbs">
+        <label for="macro2">Protein</label>
+        <input type="checkbox" id="macro2" name="macros" value="protein">
+        <label for="macro3">Fats</label>
+        <input type="checkbox" id="macro3" name="macros" value="fats">
         
         <button type="submit" id='add-button'>Submit</button>
     </form>
     </div>
 <script>
-  function main () {
-    // Do our initialization
-    const add_button = document.getElementById('add-button');
+  function main() {
+    const addButton = document.getElementById('add-button');
     add_button.addEventListener('click', add);
   }
 
   function getFormInfo(){
-    const title = document.getElementById('form-title').value;
-    const description = document.getElementById('form-description').value;
-    // clear form
-    document.getElementById('form-title').value = '';
-    document.getElementById('form-description').value = '';
-    return [title, description];
+    const name = document.getElementById('name-food').value;
+    const macro1 = document.getElementById('macro1').checked;
+    const macro2 = document.getElementById('macro2').checked;
+    const macro3 = document.getElementById('macro3').checked;
+
+    document.getElementById('name-food').value = '';
+    document.getElementById('macro1').checked = false;
+    document.getElementById('macro2').checked = false;
+    document.getElementById('macro3').checked = false;
+    return [name, macro1, macro2, macro3];
   }
 
   function add(e){
     e.preventDefault();
-    [title, description] = getFormInfo();
-    if (title === ''){
-      // 
-      alert('Error: Todo needs a Title');
-    } else if (description === '') {
-      alert('Error: Description can\'t be empty.');
+    [name, macro1, macro2, macro3] = getFormInfo();
+    if (name === ''){
+      alert('Error: Please input something for name of food');
     } else {
-      // Build the DOM elements
-      const list=document.getElementById('todo-list');
+      const list = document.getElementById('food-list');
       const newitem = document.createElement('li');
-      const newcard = document.createElement('div');
-      const newcardbody = document.createElement("div");
-      const title_h5 = document.createElement("h5");
-      const description_p = document.createElement("p");
       const close_icon = document.createElement('span');
-      // Add the title and description text to elements
-      title_h5.append(document.createTextNode(title));
-      description_p.append(document.createTextNode(description));
-      // Add a utf-8 close window symbol
-      close_icon.appendChild(document.createTextNode('\u274e'))
-      // Assemble the card
-      newcard.appendChild(close_icon)
-      newcardbody.appendChild(title_h5);
-      newcardbody.appendChild(description_p);
-      newcard.appendChild(newcardbody);
-      newitem.appendChild(newcard);
+      close_icon.appendChild(document.createTextNode('\u274e'));
+        
+      newitem.appendChild(document.createTextNode(name));
+      if (macro1 == true) newitem.appendChild(document.createTextNode(' Carbohydrate'));
+      if (macro2 == true) newitem.appendChild(document.createTextNode(' Protein'));
+      if (macro3 == true) newitem.appendChild(document.createTextNode(' Fat'));
+        
+      newitem.appendChild(close_icon);
       list.appendChild(newitem);
-      // Set up ability to close card
+        
       close_icon.addEventListener('click',()=>{
         while (newitem.firstChild) {
           newitem.removeChild(newitem.firstChild);

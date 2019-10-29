@@ -57,9 +57,9 @@
       close_icon.appendChild(document.createTextNode('\u274e'));
         
       newitem.appendChild(document.createTextNode(name));
-      if (macro1 == true) newitem.appendChild(document.createTextNode(' Carbohydrate'));
-      if (macro2 == true) newitem.appendChild(document.createTextNode(' Protein'));
-      if (macro3 == true) newitem.appendChild(document.createTextNode(' Fat'));
+      //if (macro1 == true) newitem.appendChild(document.createTextNode(' Carbohydrate'));
+      //if (macro2 == true) newitem.appendChild(document.createTextNode(' Protein'));
+      //if (macro3 == true) newitem.appendChild(document.createTextNode(' Fat'));
         
       newitem.appendChild(close_icon);
       list.appendChild(newitem);
@@ -73,7 +73,7 @@
     }
   }
 
-  window.onload = main;
+  window.addEventListener("load", main);
 </script>
 </body>
 </html>
